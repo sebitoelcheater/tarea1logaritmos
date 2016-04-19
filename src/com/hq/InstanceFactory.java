@@ -36,8 +36,12 @@ public class InstanceFactory {
         int[] buffer = new int[this.bufferSize];
         int i = 0;
         while (i < this.size) {
-            int j = 0;
-            if (i < )
+            if (i > position && i < position + runSize) {
+                // only add to buffer numbers that are bigger than the previous
+            }
+            else {
+                // add any random number to buffer
+            }
             while (j < this.bufferSize) {
                 buffer[j] = random.nextInt();
                 j++;
