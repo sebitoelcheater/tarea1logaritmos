@@ -7,7 +7,7 @@ public class InstanceFactory {
 
     private int size = (int) Math.pow(2, 30);
     private int runPercentage = 20;
-    private int runSize = (int) 0.2*size;
+    private int runSize = (int) (0.2 * (float) size);
     private int bufferSize = (int) Math.pow(2, 20);
 
     public InstanceFactory(int sizeExp, float runRatio) {
@@ -18,8 +18,7 @@ public class InstanceFactory {
 
     private int setPosition() {
         Random random = new Random();
-        int position = random.nextInt(this.size - this.runSize);
-        return position;
+        return random.nextInt(this.size - this.runSize);
     }
 
     public void setBufferSize(int bufferSize) {
@@ -35,18 +34,22 @@ public class InstanceFactory {
 
         int[] buffer = new int[this.bufferSize];
         int i = 0;
+        int j = 0;
+        int min;
         while (i < this.size) {
             if (i > position && i < position + runSize) {
-                // only add to buffer numbers that are bigger than the previous
+                
             }
             else {
                 // add any random number to buffer
             }
-            while (j < this.bufferSize) {
+
+            if (j < this.bufferSize) {
                 buffer[j] = random.nextInt();
                 j++;
-
             }
+            else
+                j = 0;
         }
     }
 
