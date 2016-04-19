@@ -1,2 +1,2 @@
 # tarea1logaritmos
-tarea 1 diseño y análisis de algoritmos
+Tarea 1 - Diseño y Análisis de Algoritmos
