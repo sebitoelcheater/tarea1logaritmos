@@ -20,7 +20,7 @@ public class InstanceFactory {
 
     private int setPosition() {
         Random random = new Random();
-        return random.nextInt((int) (this.size - this.runSize - 1));
+        return random.nextInt((int) (this.size - this.runSize));
     }
 
     public void setBufferSize(long bufferSize) {
@@ -42,12 +42,15 @@ public class InstanceFactory {
         int i = 0;
         int j = 0;
         long val = 0;
-
         long MAX_VAL = 20000000000L;
+        int increase = 10;
         while (i < this.size) {
             if (i > position && i < position + runSize) {
-                long increment = (long) rnd.nextInt(10);
+                long increment = (long) rnd.nextInt(increase);
                 val = val + increment;
+            }
+            else if (i == position) {
+                val = -MAX_VAL;
             }
             else {
                 val = -MAX_VAL + (long)(rnd.nextDouble()*(2*MAX_VAL));
@@ -64,5 +67,10 @@ public class InstanceFactory {
             j++;
         }
         writer.close();
+
+        long[] info = new long[2];
+        info[0] = position;
+        info[1] = runSize;
+        return info;
     }
 }
