@@ -1,4 +1,4 @@
-package com.hq.mergesort;
+package com.hq;
 
 import java.io.*;
 
