@@ -1,6 +1,7 @@
 package com.hq;
 
 import java.io.*;
+import java.util.List;
 
 /**
  * Created by sebito on 21-04-16.
@@ -89,7 +90,9 @@ public class TwoWayMergesort implements Mergesort{
 
     }
 
-    public void merge(){
+    public List<Double> merge(int size) throws IOException {
+        double current0 = Double.parseDouble(originFiles[0].readLine());
+        double current1 = Double.parseDouble(originFiles[1].readLine());
         
     }
 
