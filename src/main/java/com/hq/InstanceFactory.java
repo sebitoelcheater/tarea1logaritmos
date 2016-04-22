@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
+/**
+ * Created by jorgito on 19-04-16.
+ */
 public class InstanceFactory {
 
     private long size = (long) Math.pow(2, 30);
