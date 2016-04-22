@@ -6,6 +6,7 @@ import java.io.*;
  * Created by sebito on 21-04-16.
  */
 public class TwoWayMergesort implements Mergesort{
+
     public String inputFileName;
 
     private static String f1 = "out/f1.txt";
@@ -67,6 +68,7 @@ public class TwoWayMergesort implements Mergesort{
     }
 
     public void swipe() throws IOException {
+
         originFiles[0].close();
         originFiles[1].close();
         destinationFiles[0].close();
@@ -86,10 +88,9 @@ public class TwoWayMergesort implements Mergesort{
 
         this.destinationFiles[0] = new BufferedWriter(new FileWriter(destinationFileNames[0]));
         this.destinationFiles[1] = new BufferedWriter(new FileWriter(destinationFileNames[1]));
-
     }
 
-    public void merge(){
+    public void merge() {
         
     }
 
