@@ -65,7 +65,6 @@ public class TwoWayMergesort extends Mergesort{
             }while (false);
 
         }
-
     }
 
     public void swipe() throws IOException {

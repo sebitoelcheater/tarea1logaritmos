@@ -1,4 +1,4 @@
-import com.hq.InstanceFactory;
+package com.hq;
 
 import java.io.*;
 
@@ -14,17 +14,16 @@ public class InstanceFactoryTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        InstanceFactory factory = new InstanceFactory((long) Math.pow(2, 30), 80);
-        factory.setBufferSize((long) Math.pow(2, 20));
+        InstanceFactory factory = new InstanceFactory(50, 50);
+        factory.setBufferSize(10);
         long[] info = factory.createFile();
         position = info[0];
         runSize = info[1];
     }
 
-
     @org.junit.Test
     public void testCreateFile() throws Exception {
-        File file = new File("input_80%.txt");
+        File file = new File("input_50%.txt");
         BufferedReader reader = null;
 
         try {
