@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by sebito on 21-04-16.
  */
-public class TwoWayMergesort implements Mergesort{
+public class TwoWayMergesort extends Mergesort{
 
     public String inputFileName;
 
@@ -23,7 +23,7 @@ public class TwoWayMergesort implements Mergesort{
     private int n;
 
     public TwoWayMergesort(String inputFileName) throws IOException {
-        this.inputFileName = inputFileName;
+        super(inputFileName);
         this.originFiles = new BufferedReader[2];
         this.destinationFiles = new BufferedWriter[2];
 
@@ -91,16 +91,13 @@ public class TwoWayMergesort implements Mergesort{
         this.destinationFiles[1] = new BufferedWriter(new FileWriter(destinationFileNames[1]));
     }
 
-<<<<<<< HEAD
-    public void merge() {
-        
-=======
+
     public long merge(long size, BufferedWriter writer) throws IOException {
         String currentLine0 = originFiles[0].readLine();
         String currentLine1 = originFiles[1].readLine();
 
         long i = 0;
-        while(i<size){
+        while(i < size){
             if(currentLine0 == null){
                 while((currentLine1 = originFiles[1].readLine()) != null && i<size){
                     i += 1;
@@ -123,15 +120,6 @@ public class TwoWayMergesort implements Mergesort{
                 }
             }
         }
-
         return i;
->>>>>>> 9437ba63c2994e6dd05ce68d507b36a7afc85270
-    }
-
-    public void createFile(String path) throws IOException {
-        File f = new File(path);
-
-        f.getParentFile().mkdirs();
-        f.createNewFile();
     }
 }
