@@ -38,7 +38,7 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
             this.pieceFiles[i].close();
         }
     }
-    
+
     @Override
     public void sort() throws IOException {
         int runSize = 1;

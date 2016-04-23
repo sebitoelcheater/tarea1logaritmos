@@ -41,6 +41,7 @@ public class InstanceFactoryTest {
             while (j < runSize) {
                 long next = Long.valueOf(reader.readLine());
                 if (next < current) {
+                    System.out.println("next: "+next+", current: "+current+", line: "+i+j+1);
                     assertFalse(next < current);
                     break;
                 }

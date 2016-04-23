@@ -1,6 +1,7 @@
 package com.hq;
 
 import java.io.*;
+import java.util.List;
 
 /**
  * Created by sebito on 21-04-16.
@@ -54,14 +55,14 @@ public class TwoWayMergesort implements Mergesort{
 
     @Override
     public void sort() throws IOException {
-        int runSize = 1;
-        int i0 = 0;
-        int i1 = 0;
+        long i = 0;
+        long runSize = (long) Math.pow(2, i);;
+        long size;
 
         while(runSize < this.n){
-            double current0 = Double.parseDouble(originFiles[0].readLine());
-            double current1 = Double.parseDouble(originFiles[1].readLine());
-
+            do{
+                size = merge(runSize, destinationFiles[(int)i % 2]);
+            }while (false);
 
         }
 
@@ -90,8 +91,41 @@ public class TwoWayMergesort implements Mergesort{
         this.destinationFiles[1] = new BufferedWriter(new FileWriter(destinationFileNames[1]));
     }
 
+<<<<<<< HEAD
     public void merge() {
         
+=======
+    public long merge(long size, BufferedWriter writer) throws IOException {
+        String currentLine0 = originFiles[0].readLine();
+        String currentLine1 = originFiles[1].readLine();
+
+        long i = 0;
+        while(i<size){
+            if(currentLine0 == null){
+                while((currentLine1 = originFiles[1].readLine()) != null && i<size){
+                    i += 1;
+                    writer.write(currentLine1);
+                }
+            } else if (currentLine1 == null){
+                while((currentLine0 = originFiles[0].readLine()) != null && i<size){
+                    i += 1;
+                    writer.write(currentLine1);
+                }
+            } else if (currentLine0 == null && currentLine1 == null){
+                break;
+            } else {
+                if(Long.parseLong(currentLine0) < Long.parseLong(currentLine1)){
+                    writer.write(currentLine0);
+                    currentLine0 = originFiles[0].readLine();
+                } else {
+                    writer.write(currentLine1);
+                    currentLine1 = originFiles[1].readLine();
+                }
+            }
+        }
+
+        return i;
+>>>>>>> 9437ba63c2994e6dd05ce68d507b36a7afc85270
     }
 
     public void createFile(String path) throws IOException {
