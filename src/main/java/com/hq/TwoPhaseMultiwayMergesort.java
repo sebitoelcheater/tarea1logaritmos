@@ -46,8 +46,8 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
         int i1 = 0;
 
         while(runSize < this.n){
-            double current0 = Double.parseDouble(originFiles[0].readLine());
-            double current1 = Double.parseDouble(originFiles[1].readLine());
+//            double current0 = Double.parseDouble(originFiles[0].readLine());
+//            double current1 = Double.parseDouble(originFiles[1].readLine());
         }
     }
 

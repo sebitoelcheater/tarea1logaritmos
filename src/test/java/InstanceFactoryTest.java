@@ -14,7 +14,7 @@ public class InstanceFactoryTest {
 
     @org.junit.Before
     public void setUp() throws Exception {
-        InstanceFactory factory = new InstanceFactory((long) Math.pow(2, 30), 80);
+        InstanceFactory factory = new InstanceFactory((long) Math.pow(2, 30), 20);
         factory.setBufferSize((long) Math.pow(2, 20));
         long[] info = factory.createFile();
         position = info[0];
@@ -24,7 +24,7 @@ public class InstanceFactoryTest {
 
     @org.junit.Test
     public void testCreateFile() throws Exception {
-        File file = new File("input_80%.txt");
+        File file = new File("input_20%.txt");
         BufferedReader reader = null;
 
         try {
