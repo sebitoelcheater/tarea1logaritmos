@@ -1,0 +1,112 @@
+/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/bin/java -ea -Xmx6g -Didea.launcher.port=7535 "-Didea.launcher.bin.path=/Applications/IntelliJ IDEA 15.app/Contents/bin" -Didea.junit.sm_runner -Dfile.encoding=UTF-8 -classpath "/Applications/IntelliJ IDEA 15.app/Contents/lib/idea_rt.jar:/Applications/IntelliJ IDEA 15.app/Contents/plugins/junit/lib/junit-rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/htmlconverter.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/javafx-doclet.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/lib/tools.jar:/Users/sebito/Developer/Tareas/Logaritmos/tarea1logaritmos/target/test-classes:/Users/sebito/Developer/Tareas/Logaritmos/tarea1logaritmos/target/classes:/Users/sebito/.m2/repository/junit/junit/4.12/junit-4.12.jar:/Users/sebito/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" com.intellij.rt.execution.application.AppMain com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 com.hq.TwoWayMergesortTest
+Strart sorting input_90_20%.txt
+iteration: 0, Run Size:1, Total time elapsed: 2
+iteration: 1, Run Size:2, Total time elapsed: 4
+iteration: 2, Run Size:4, Total time elapsed: 6
+iteration: 3, Run Size:8, Total time elapsed: 8
+iteration: 4, Run Size:16, Total time elapsed: 9
+iteration: 5, Run Size:32, Total time elapsed: 11
+iteration: 6, Run Size:64, Total time elapsed: 14
+iteration: 7, Run Size:128, Total time elapsed: 15
+The file has been sorted! Total time elapsed: 16
+Strart sorting input_20%.txt
+iteration: 0, Run Size:1, Total time elapsed: 179218
+iteration: 1, Run Size:2, Total time elapsed: 373959
+iteration: 2, Run Size:4, Total time elapsed: 575955
+iteration: 3, Run Size:8, Total time elapsed: 783428
+iteration: 4, Run Size:16, Total time elapsed: 993445
+iteration: 5, Run Size:32, Total time elapsed: 1204181
+iteration: 6, Run Size:64, Total time elapsed: 1416495
+iteration: 7, Run Size:128, Total time elapsed: 1627330
+iteration: 8, Run Size:256, Total time elapsed: 1838374
+iteration: 9, Run Size:512, Total time elapsed: 2049215
+iteration: 10, Run Size:1024, Total time elapsed: 2259799
+iteration: 11, Run Size:2048, Total time elapsed: 2470567
+iteration: 12, Run Size:4096, Total time elapsed: 2682076
+iteration: 13, Run Size:8192, Total time elapsed: 2892668
+iteration: 14, Run Size:16384, Total time elapsed: 3104084
+iteration: 15, Run Size:32768, Total time elapsed: 3314988
+iteration: 16, Run Size:65536, Total time elapsed: 3526289
+iteration: 17, Run Size:131072, Total time elapsed: 3739361
+iteration: 18, Run Size:262144, Total time elapsed: 3951609
+iteration: 19, Run Size:524288, Total time elapsed: 4162593
+iteration: 20, Run Size:1048576, Total time elapsed: 4373941
+iteration: 21, Run Size:2097152, Total time elapsed: 4585074
+iteration: 22, Run Size:4194304, Total time elapsed: 4795220
+iteration: 23, Run Size:8388608, Total time elapsed: 5006515
+iteration: 24, Run Size:16777216, Total time elapsed: 5216073
+iteration: 25, Run Size:33554432, Total time elapsed: 5429076
+iteration: 26, Run Size:67108864, Total time elapsed: 5643038
+iteration: 27, Run Size:134217728, Total time elapsed: 5863837
+iteration: 28, Run Size:268435456, Total time elapsed: 6085255
+iteration: 29, Run Size:536870912, Total time elapsed: 6306336
+iteration: 30, Run Size:1073741824, Total time elapsed: 6426476
+The file has been sorted! Total time elapsed: 6427053
+Strart sorting input_50%.txt
+iteration: 0, Run Size:1, Total time elapsed: 178006
+iteration: 1, Run Size:2, Total time elapsed: 366549
+iteration: 2, Run Size:4, Total time elapsed: 559871
+iteration: 3, Run Size:8, Total time elapsed: 755216
+iteration: 4, Run Size:16, Total time elapsed: 951666
+iteration: 5, Run Size:32, Total time elapsed: 1150252
+iteration: 6, Run Size:64, Total time elapsed: 1350716
+iteration: 7, Run Size:128, Total time elapsed: 1546862
+iteration: 8, Run Size:256, Total time elapsed: 1743677
+iteration: 9, Run Size:512, Total time elapsed: 1942878
+iteration: 10, Run Size:1024, Total time elapsed: 2138501
+iteration: 11, Run Size:2048, Total time elapsed: 2335241
+iteration: 12, Run Size:4096, Total time elapsed: 2531115
+iteration: 13, Run Size:8192, Total time elapsed: 2728156
+iteration: 14, Run Size:16384, Total time elapsed: 2923252
+iteration: 15, Run Size:32768, Total time elapsed: 3120302
+iteration: 16, Run Size:65536, Total time elapsed: 3320651
+iteration: 17, Run Size:131072, Total time elapsed: 3521940
+iteration: 18, Run Size:262144, Total time elapsed: 3722808
+iteration: 19, Run Size:524288, Total time elapsed: 3921241
+iteration: 20, Run Size:1048576, Total time elapsed: 4118795
+iteration: 21, Run Size:2097152, Total time elapsed: 4316687
+iteration: 22, Run Size:4194304, Total time elapsed: 4514927
+iteration: 23, Run Size:8388608, Total time elapsed: 4710908
+iteration: 24, Run Size:16777216, Total time elapsed: 4907795
+iteration: 25, Run Size:33554432, Total time elapsed: 5104194
+iteration: 26, Run Size:67108864, Total time elapsed: 5305448
+iteration: 27, Run Size:134217728, Total time elapsed: 5503924
+iteration: 28, Run Size:268435456, Total time elapsed: 5703476
+iteration: 29, Run Size:536870912, Total time elapsed: 5925254
+iteration: 30, Run Size:1073741824, Total time elapsed: 6036666
+The file has been sorted! Total time elapsed: 6036990
+Strart sorting input_80%.txt
+iteration: 0, Run Size:1, Total time elapsed: 176936
+iteration: 1, Run Size:2, Total time elapsed: 359611
+iteration: 2, Run Size:4, Total time elapsed: 543708
+iteration: 3, Run Size:8, Total time elapsed: 729085
+iteration: 4, Run Size:16, Total time elapsed: 911631
+iteration: 5, Run Size:32, Total time elapsed: 1097691
+iteration: 6, Run Size:64, Total time elapsed: 1279620
+iteration: 7, Run Size:128, Total time elapsed: 1461213
+iteration: 8, Run Size:256, Total time elapsed: 1643457
+iteration: 9, Run Size:512, Total time elapsed: 1825366
+iteration: 10, Run Size:1024, Total time elapsed: 2006474
+iteration: 11, Run Size:2048, Total time elapsed: 2187849
+iteration: 12, Run Size:4096, Total time elapsed: 2367783
+iteration: 13, Run Size:8192, Total time elapsed: 2548502
+iteration: 14, Run Size:16384, Total time elapsed: 2729294
+iteration: 15, Run Size:32768, Total time elapsed: 2914226
+iteration: 16, Run Size:65536, Total time elapsed: 3101280
+iteration: 17, Run Size:131072, Total time elapsed: 3292985
+iteration: 18, Run Size:262144, Total time elapsed: 3481901
+iteration: 19, Run Size:524288, Total time elapsed: 3668848
+iteration: 20, Run Size:1048576, Total time elapsed: 3852389
+iteration: 21, Run Size:2097152, Total time elapsed: 4035571
+iteration: 22, Run Size:4194304, Total time elapsed: 4218817
+iteration: 23, Run Size:8388608, Total time elapsed: 4402266
+iteration: 24, Run Size:16777216, Total time elapsed: 4586632
+iteration: 25, Run Size:33554432, Total time elapsed: 4771429
+iteration: 26, Run Size:67108864, Total time elapsed: 4955810
+iteration: 27, Run Size:134217728, Total time elapsed: 5147346
+iteration: 28, Run Size:268435456, Total time elapsed: 5341140
+iteration: 29, Run Size:536870912, Total time elapsed: 5566312
+iteration: 30, Run Size:1073741824, Total time elapsed: 5680608
+The file has been sorted! Total time elapsed: 5681497
+
+Process finished with exit code 0
