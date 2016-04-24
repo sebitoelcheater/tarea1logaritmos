@@ -7,3 +7,4 @@ input_80%.txt
 out/
 pom.xml
 input_90_20%.txt
+target/
