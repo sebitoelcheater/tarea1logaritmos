@@ -105,7 +105,6 @@ public class TwoWayMergesort extends Mergesort{
         createFile(OUT_SUFIX+inputFileName);
         copyFile(new File(originFileNames[0]), new File("out/TwoWayMergesort/OUT_"+inputFileName));
 
-
     }
 
     public void swipe() throws IOException {
