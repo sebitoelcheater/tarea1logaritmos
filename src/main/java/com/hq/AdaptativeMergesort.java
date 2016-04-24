@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * Created by jorgito on 22-04-16.
  */
-public class AdaptativeMergesort implements Mergesort {
+public class AdaptativeMergesort extends Mergesort {
 
     public String inputFileName;
 
@@ -21,6 +21,7 @@ public class AdaptativeMergesort implements Mergesort {
     private long k = (long) Math.pow(2, 20);
 
     public AdaptativeMergesort(String inputFileName) throws IOException {
+        super(inputFileName);
         this.inputFileName = inputFileName;
 
         int nOfFiles = (int) (n/k);
@@ -55,11 +56,7 @@ public class AdaptativeMergesort implements Mergesort {
             i++;
         }
 
-        this.originFiles[0] = new BufferedReader(new FileReader(f1));
-        this.originFiles[1] = new BufferedReader(new FileReader(f2));
 
-        this.destinationFiles[0] = new BufferedWriter(new FileWriter(g1));
-        this.destinationFiles[1] = new BufferedWriter(new FileWriter(g2));
     }
 
 
@@ -74,29 +71,6 @@ public class AdaptativeMergesort implements Mergesort {
             double current1 = Double.parseDouble(originFiles[1].readLine());
 
         }
-
-    }
-
-    public void swipe() throws IOException {
-        originFiles[0].close();
-        originFiles[1].close();
-        destinationFiles[0].close();
-        destinationFiles[1].close();
-
-        String originFileNames0 = this.originFileNames[0];
-        String originFileNames1 = this.originFileNames[1];
-
-        this.originFileNames[0] = this.destinationFileNames[0];
-        this.originFileNames[1] = this.destinationFileNames[1];
-
-        this.destinationFileNames[0] = originFileNames0;
-        this.destinationFileNames[1] = originFileNames1;
-
-        this.originFiles[0] = new BufferedReader(new FileReader(originFileNames[0]));
-        this.originFiles[1] = new BufferedReader(new FileReader(originFileNames[1]));
-
-        this.destinationFiles[0] = new BufferedWriter(new FileWriter(destinationFileNames[0]));
-        this.destinationFiles[1] = new BufferedWriter(new FileWriter(destinationFileNames[1]));
 
     }
 

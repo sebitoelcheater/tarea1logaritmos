@@ -47,8 +47,9 @@ public class InstanceFactory {
         long val = 0;
         long MAX_VAL = 20000000000L;
         int increase = 10;
-        while (i < this.size) {
-            if (i > position && i < position + runSize) {
+
+        while (i <= this.size) {
+            if (i > position && i < position + this.runSize) {
                 long increment = (long) rnd.nextInt(increase);
                 val = val + increment;
             }

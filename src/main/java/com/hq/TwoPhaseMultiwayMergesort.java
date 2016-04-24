@@ -12,7 +12,7 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
 
     int nOfFiles = (int) (n/k);
     BufferedWriter[] pieceFiles = new BufferedWriter[nOfFiles];
-    String[] pieceFileNames = null;
+    String[] pieceFileNames = new String[nOfFiles];
 
     public TwoPhaseMultiwayMergesort(String inputFileName) throws IOException {
         super(inputFileName);
@@ -33,7 +33,7 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
             Arrays.sort(elements);
 
             for (int j = 0; j < k; j++) {
-                this.pieceFiles[i].write(Long.toString(elements[j]));
+                this.pieceFiles[i].write(Long.toString(elements[j]) + "\n");
             }
 
             this.pieceFiles[i].close();
@@ -43,42 +43,57 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
     @Override
     public void sort() throws IOException {
         createFile("out/TwoPhaseMultiwayMergesort/OUT_" + inputFileName);
-        BufferedWriter outputFile = new BufferedWriter(new FileWriter("out/TwoPhaseMultiwayMergesort/OUT_" + inputFileName));
+        PrintWriter outputFile = new PrintWriter("out/TwoPhaseMultiwayMergesort/OUT_" + inputFileName, "UTF-8");
 
         boolean open = false;
         long last_min = Long.MIN_VALUE;
         BufferedReader[] pieces = new BufferedReader[nOfFiles];
+
+        long[] readCounter = new long[nOfFiles];
+        Arrays.fill(readCounter, 0);
+
         for (int i = 0; i < n; i++) {
 
             long min = Long.MAX_VALUE;
             for (int j = 0; j < this.nOfFiles; j++) {
 
                 if (!open)
-                    pieces[j] = new BufferedReader(new FileReader("out/piece_" + j + ".txt"));
+                    pieces[j] = new BufferedReader(new FileReader("out/TwoPhaseMultiwayMergesort_" + inputFileName + "/piece_" + j + ".txt"));
 
-                pieces[j].mark(100);
+                if (readCounter[j] < k) {
 
-                long val = Long.parseLong(pieces[j].readLine());
-                if (val == last_min) {
                     pieces[j].mark(100);
-                    val = Long.parseLong(pieces[j].readLine());
-                }
+                    long val = Long.parseLong(pieces[j].readLine());
 
-                min = val < min ? val : min;
-                pieces[j].reset();
+                    if (val == last_min) {
+                        readCounter[j]++;
+                        if (readCounter[j] < k) {
+                            pieces[j].mark(100);
+                            val = Long.parseLong(pieces[j].readLine()); }
+                        else {
+                            continue; }
+                        last_min = Long.MIN_VALUE;
+                    }
+
+                    pieces[j].reset();
+                    min = val < min ? val : min;
+                }
             }
+
             last_min = min;
             open = true;
 
-            outputFile.write(Long.toString(min) + "\n");
+            outputFile.println(Long.toString(min));
         }
+
+        outputFile.close();
 
         for (int j = 0; j < this.nOfFiles; j++)
             pieces[j].close();
     }
 
     public void createFiles(int nOfFiles) throws IOException {
-        String prefix = "out/piece_";
+        String prefix = "out/TwoPhaseMultiwayMergesort_" + inputFileName + "/piece_";
         for (int i = 0; i < nOfFiles; i++) {
             pieceFileNames[i] = prefix + i + ".txt";
             this.createFile(pieceFileNames[i]);
