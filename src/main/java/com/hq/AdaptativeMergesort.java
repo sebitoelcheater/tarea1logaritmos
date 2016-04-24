@@ -57,6 +57,12 @@ public class AdaptativeMergesort extends Mergesort {
         }
 
 
+//        this.originFiles[0] = new BufferedReader(new FileReader(f1));
+//        this.originFiles[1] = new BufferedReader(new FileReader(f2));
+//
+//        this.destinationFiles[0] = new BufferedWriter(new FileWriter(g1));
+//        this.destinationFiles[1] = new BufferedWriter(new FileWriter(g2));
+
     }
 
 
@@ -74,9 +80,11 @@ public class AdaptativeMergesort extends Mergesort {
 
     }
 
+
     public void merge(){
 
     }
+
 
     public void createFile(String path) throws IOException {
         File f = new File(path);
