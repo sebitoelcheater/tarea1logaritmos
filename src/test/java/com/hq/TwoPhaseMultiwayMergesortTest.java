@@ -18,7 +18,7 @@ public class TwoPhaseMultiwayMergesortTest {
     @Before
     public void setUp() throws Exception {
         long startTime20 = System.currentTimeMillis();
-        Mergesort tpmmsort20 = new TwoPhaseMultiwayMergesort("input_20%.txt");
+        Mergesort tpmmsort20 = new TwoPhaseMultiwayMergesort("input_20%.txt", (long) Math.pow(2, 30), (long) Math.pow(2, 20));
         long setupTime20 = System.currentTimeMillis();
         System.out.println("File splitting completed. Total time for input_20%.txt = " + (setupTime20 - startTime20) + "ms.");
         tpmmsort20.sort();

@@ -14,8 +14,6 @@ public abstract class Mergesort {
     String inputFileName;
     BufferedReader inputFile;
 
-    long n = (long) Math.pow(2, 30);
-
     public Mergesort (String inputFileName) {
         this.inputFileName = inputFileName;
     }

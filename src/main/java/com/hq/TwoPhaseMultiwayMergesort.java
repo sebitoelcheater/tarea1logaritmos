@@ -8,14 +8,20 @@ import java.util.Arrays;
  */
 public class TwoPhaseMultiwayMergesort extends Mergesort {
 
-    private long k = (long) Math.pow(2, 20);
+    private long k;
+    private long n;
 
-    int nOfFiles = (int) (n/k);
-    BufferedWriter[] pieceFiles = new BufferedWriter[nOfFiles];
-    String[] pieceFileNames = new String[nOfFiles];
+    private int nOfFiles;
+    private BufferedWriter[] pieceFiles;
+    private String[] pieceFileNames;
 
-    public TwoPhaseMultiwayMergesort(String inputFileName) throws IOException {
+    public TwoPhaseMultiwayMergesort(String inputFileName, long n, long k) throws IOException {
         super(inputFileName);
+        this.n = n;
+        this.k = k;
+        this.nOfFiles = (int) (n/k);
+        this.pieceFiles = new BufferedWriter[nOfFiles];
+        this.pieceFileNames = new String[nOfFiles];
 
         createFiles(nOfFiles);
 
@@ -45,23 +51,19 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
         createFile("out/TwoPhaseMultiwayMergesort/OUT_" + inputFileName);
         PrintWriter outputFile = new PrintWriter("out/TwoPhaseMultiwayMergesort/OUT_" + inputFileName, "UTF-8");
 
-        boolean open = false;
-        long last_min = Long.MIN_VALUE;
         BufferedReader[] pieces = new BufferedReader[nOfFiles];
+        for (int k = 0; k < nOfFiles; k++)
+            pieces[k] = new BufferedReader(new FileReader(pieceFileNames[k]));
 
         long[] readCounter = new long[nOfFiles];
-        Arrays.fill(readCounter, 0);
+        long last_min = Long.MIN_VALUE;
 
         for (int i = 0; i < n; i++) {
 
             long min = Long.MAX_VALUE;
             for (int j = 0; j < this.nOfFiles; j++) {
 
-                if (!open)
-                    pieces[j] = new BufferedReader(new FileReader("out/TwoPhaseMultiwayMergesort_" + inputFileName + "/piece_" + j + ".txt"));
-
                 if (readCounter[j] < k) {
-
                     pieces[j].mark(100);
                     long val = Long.parseLong(pieces[j].readLine());
 
@@ -69,9 +71,12 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
                         readCounter[j]++;
                         if (readCounter[j] < k) {
                             pieces[j].mark(100);
-                            val = Long.parseLong(pieces[j].readLine()); }
+                            val = Long.parseLong(pieces[j].readLine());
+                        }
                         else {
-                            continue; }
+                            pieces[j].close();
+                            continue;
+                        }
                         last_min = Long.MIN_VALUE;
                     }
 
@@ -79,17 +84,10 @@ public class TwoPhaseMultiwayMergesort extends Mergesort {
                     min = val < min ? val : min;
                 }
             }
-
             last_min = min;
-            open = true;
-
-            outputFile.println(Long.toString(min));
+            outputFile.println(Long.toString(last_min));
         }
-
         outputFile.close();
-
-        for (int j = 0; j < this.nOfFiles; j++)
-            pieces[j].close();
     }
 
     public void createFiles(int nOfFiles) throws IOException {

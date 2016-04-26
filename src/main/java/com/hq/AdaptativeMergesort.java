@@ -19,6 +19,7 @@ public class AdaptativeMergesort extends Mergesort {
     private BufferedWriter[] destinationFiles;
 
     private long k = (long) Math.pow(2, 20);
+    private long n = (long) Math.pow(2, 30);
 
     public AdaptativeMergesort(String inputFileName) throws IOException {
         super(inputFileName);
