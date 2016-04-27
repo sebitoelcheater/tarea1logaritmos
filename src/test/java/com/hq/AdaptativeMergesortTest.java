@@ -65,6 +65,8 @@ public class AdaptativeMergesortTest {
 
     }
 
+
+
     @Test
     public void testSort9020() throws Exception {
         String input = "input_90_20%.txt";
@@ -81,6 +83,69 @@ public class AdaptativeMergesortTest {
             assertEquals(expected[i], Long.parseLong(line));
             i += 1;
         }
+
+    }
+
+    @Test
+    public void testSort20() throws Exception {
+        String input = "input_20%.txt";
+        adaptativeMergesort = new AdaptativeMergesort(input);
+        adaptativeMergesort.sort();
+
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +input));
+        long prevNumber = Long.parseLong(outputReader.readLine());
+        // counter starts in 1 because we have already readed one line to set prevNumber
+        long counter = 1;
+        for(String line; (line = outputReader.readLine()) != null; ) {
+            assertTrue(prevNumber <= Long.parseLong(line));
+            counter += 1;
+            if (Long.parseLong(line) < prevNumber){
+                break;
+            }
+        }
+        assertEquals(counter, adaptativeMergesort.getN());
+
+    }
+
+    @Test
+    public void testSort50() throws Exception {
+        String input = "input_50%.txt";
+        adaptativeMergesort = new AdaptativeMergesort(input);
+        adaptativeMergesort.sort();
+
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +input));
+        long prevNumber = Long.parseLong(outputReader.readLine());
+        // counter starts in 1 because we have already readed one line to set prevNumber
+        long counter = 1;
+        for(String line; (line = outputReader.readLine()) != null; ) {
+            assertTrue(prevNumber <= Long.parseLong(line));
+            counter += 1;
+            if (Long.parseLong(line) < prevNumber){
+                break;
+            }
+        }
+        assertEquals(counter, adaptativeMergesort.getN());
+
+    }
+
+    @Test
+    public void testSort80() throws Exception {
+        String input = "input_80%.txt";
+        adaptativeMergesort = new AdaptativeMergesort(input);
+        adaptativeMergesort.sort();
+
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +input));
+        long prevNumber = Long.parseLong(outputReader.readLine());
+        // counter starts in 1 because we have already readed one line to set prevNumber
+        long counter = 1;
+        for(String line; (line = outputReader.readLine()) != null; ) {
+            assertTrue(prevNumber <= Long.parseLong(line));
+            counter += 1;
+            if (Long.parseLong(line) < prevNumber){
+                break;
+            }
+        }
+        assertEquals(counter, adaptativeMergesort.getN());
 
     }
 
