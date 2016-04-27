@@ -29,7 +29,7 @@ public class TwoWayMergesortTest {
     public void testSort9020() throws Exception {
         twoWayMergesort = new TwoWayMergesort("input_90_20%.txt");
         twoWayMergesort.sort();
-        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_SUFIX+"input_90_20%.txt"));
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +"input_90_20%.txt"));
         long prevNumber = Long.parseLong(outputReader.readLine());
         // counter starts in 1 because we have already readed one line to set prevNumber
         long counter = 1;
@@ -48,7 +48,7 @@ public class TwoWayMergesortTest {
     public void testSort20() throws Exception {
         twoWayMergesort = new TwoWayMergesort("input_20%.txt");
         twoWayMergesort.sort();
-        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_SUFIX+"input_20%.txt"));
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +"input_20%.txt"));
         long prevNumber = Long.parseLong(outputReader.readLine());
         // counter starts in 1 because we have already readed one line to set prevNumber
         long counter = 1;
@@ -67,7 +67,7 @@ public class TwoWayMergesortTest {
     public void testSort50() throws Exception {
         twoWayMergesort = new TwoWayMergesort("input_50%.txt");
         twoWayMergesort.sort();
-        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_SUFIX+"input_50%.txt"));
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +"input_50%.txt"));
         long prevNumber = Long.parseLong(outputReader.readLine());
         // counter starts in 1 because we have already readed one line to set prevNumber
         long counter = 1;
@@ -86,7 +86,7 @@ public class TwoWayMergesortTest {
     public void testSort80() throws Exception {
         twoWayMergesort = new TwoWayMergesort("input_80%.txt");
         twoWayMergesort.sort();
-        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_SUFIX+"input_80%.txt"));
+        BufferedReader outputReader = new BufferedReader(new FileReader(TwoWayMergesort.OUT_PATH +"input_80%.txt"));
         long prevNumber = Long.parseLong(outputReader.readLine());
         // counter starts in 1 because we have already readed one line to set prevNumber
         long counter = 1;
