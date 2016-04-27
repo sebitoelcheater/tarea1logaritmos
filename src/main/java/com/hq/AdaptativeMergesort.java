@@ -18,6 +18,7 @@ public class AdaptativeMergesort extends Mergesort {
     private long numberOfRuns;
 
     private long k = (long) Math.pow(2, 20);
+    private long n = (long) Math.pow(2, 30);
 
     public AdaptativeMergesort(String inputFileName) throws IOException {
         super(inputFileName);
@@ -62,6 +63,7 @@ public class AdaptativeMergesort extends Mergesort {
         currentWriter.close();
         System.out.println("Run nº " + i + " generated. (Elapsed: "+(System.currentTimeMillis() - startTime)+" ms)");
         System.out.println("Runs generated successfully");
+
 
     }
 
