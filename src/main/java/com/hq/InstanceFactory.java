@@ -1,24 +1,24 @@
 package com.hq;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
-/**
- * Created by jorgito on 19-04-16.
- */
 public class InstanceFactory {
 
     private long size = (long) Math.pow(2, 30);
     private long runPercentage = 20;
     private long runSize = (long) (0.2 * (float) size);
-    private long bufferSize = (long) Math.pow(2, 20);
+    private long bufferSize = (long) Math.pow(2, 15);
+    private String exp = null;
 
     public InstanceFactory(long size, long runPercentage) {
         this.size = size;
         this.runPercentage = runPercentage;
         this.runSize = (long) (((float) size) * (((float) runPercentage) / 100.0f));
+        this.exp = String.valueOf((int) (Math.log(size) / Math.log(2)));
     }
 
     private int setPosition() {
@@ -31,7 +31,10 @@ public class InstanceFactory {
     }
 
     public long[] createFile() {
-        String filename = "input_" + String.valueOf(this.runPercentage) + "%.txt";
+        String filename = "Instances/2^" + exp + "/run_" + String.valueOf(this.runPercentage) + "%.txt";
+        File file = new File(filename);
+        file.getParentFile().mkdirs();
+
         PrintWriter writer = null;
         try {
             writer = new PrintWriter(filename, "UTF-8");
@@ -74,7 +77,7 @@ public class InstanceFactory {
 
         long[] info = new long[2];
         info[0] = position;
-        info[1] = runSize;
+        info[1] = this.runSize;
         return info;
     }
 }

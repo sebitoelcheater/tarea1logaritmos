@@ -3,9 +3,6 @@ package com.hq;
 import java.io.*;
 import java.util.Arrays;
 
-/**
- * Created by jorgito on 22-04-16.
- */
 public class TwoPhaseMultiwayMergesort extends Mergesort {
 
     private long k;

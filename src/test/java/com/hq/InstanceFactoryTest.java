@@ -9,66 +9,63 @@ import static org.junit.Assert.*;
  */
 public class InstanceFactoryTest {
 
-    long position20;
-    long position50;
-    long position80;
-    long runSize20;
-    long runSize50;
-    long runSize80;
+    InstanceFactory[] factories = new InstanceFactory[3];
+    int[] percentages = new int[3];
 
     @org.junit.Before
     public void setUp() throws Exception {
-        InstanceFactory factory20 = new InstanceFactory((long) Math.pow(2, 30), 20);
-        //InstanceFactory factory50 = new InstanceFactory((long) Math.pow(2, 30), 50);
-        //InstanceFactory factory80 = new InstanceFactory((long) Math.pow(2, 30), 80);
-        factory20.setBufferSize((long) Math.pow(2, 20));
-        //factory50.setBufferSize((long) Math.pow(2, 20));
-        //factory80.setBufferSize((long) Math.pow(2, 20));
-        long[] info20 = factory20.createFile();
-        //long[] info50 = factory50.createFile();
-        //long[] info80 = factory80.createFile();
-        position20 = info20[0];
-        //position50 = info50[0];
-        //position80 = info80[0];
-        runSize20 = info20[1];
-        //runSize50 = info50[1];
-        //runSize80 = info80[1];
+        this.percentages[0] = 20;
+        this.percentages[1] = 50;
+        this.percentages[2] = 80;
+        for (int i = 0; i < percentages.length; i++) {
+            factories[i] = new InstanceFactory((long) Math.pow(2, 10), percentages[i]);
+            factories[i].setBufferSize((long) Math.pow(2, 5));
+        }
     }
 
     @org.junit.Test
-    public void testCreateFile() throws Exception {
-        File file = new File("input_20%.txt");
-        BufferedReader reader = null;
+    public void testCreateFileAllInstances() throws Exception {
 
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        for (int k = 0; k < percentages.length; k++) {
+            long[] info = factories[k].createFile();
+            long position = info[0];
+            long runSize = info[1];
 
-            long i = 0;
-            while (i < position20) {
-                reader.readLine();
-                i++;
-            }
+            String p = String.valueOf(percentages[k]);
+            File file = new File("Instances/2^10/run_" + p + "%.txt");
+            BufferedReader reader = null;
 
-            long current = Long.valueOf(reader.readLine());
-            long j = 0;
-            while (j < runSize20) {
-                long next = Long.valueOf(reader.readLine());
-                if (next < current) {
-                    assertFalse(next < current);
-                    break;
-                }
-                current = next;
-                j++;
-            }
-        }
-        catch (FileNotFoundException e) { e.printStackTrace(); }
-        catch (IOException e) { e.printStackTrace(); }
-        finally {
             try {
-                if (reader != null)
-                    reader.close();
+                reader = new BufferedReader(new FileReader(file));
+
+                long i = 0;
+                while (i < position) {
+                    reader.readLine();
+                    i++;
+                }
+
+                long current = Long.valueOf(reader.readLine());
+                long j = 0;
+                while (j < runSize) {
+                    long next = Long.valueOf(reader.readLine());
+                    if (next < current) {
+                        assertFalse(next < current);
+                        break;
+                    }
+                    current = next;
+                    j++;
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (reader != null)
+                        reader.close();
+                } catch (IOException e) {
+                }
             }
-            catch (IOException e) {}
         }
     }
 }
