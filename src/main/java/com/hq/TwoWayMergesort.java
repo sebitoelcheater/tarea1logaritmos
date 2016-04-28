@@ -1,15 +1,13 @@
 package com.hq;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.List;
 
 /**
  * Created by sebito on 21-04-16.
  */
 public class TwoWayMergesort extends Mergesort{
 
-    public static String OUT_SUFIX = "out/TwoWayMergesort/OUT_";
+    public static String OUT_PATH = "out/TwoWayMergesort/OUT_";
 
     private static String f1 = "out/TwoWayMergesort/temp/f1.txt";
     private static String f2 = "out/TwoWayMergesort/temp/f2.txt";
@@ -102,7 +100,7 @@ public class TwoWayMergesort extends Mergesort{
         originFiles[0].close();
         originFiles[1].close();
 
-        createFile(OUT_SUFIX+inputFileName);
+        createFile(OUT_PATH +inputFileName);
         copyFile(new File(originFileNames[0]), new File("out/TwoWayMergesort/OUT_"+inputFileName));
 
     }

@@ -1,96 +1,101 @@
 package com.hq;
 
+import javafx.util.Pair;
+
 import java.io.*;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * Created by jorgito on 22-04-16.
  */
 public class AdaptativeMergesort extends Mergesort {
 
-    public String inputFileName;
-
-    private String[] originFileNames;
-    private String[] destinationFileNames;
-
     private BufferedReader inputFile;
+    public static String OUT_PATH = "out/AdaptativeMergesort/OUT_";
+    public static String TEMP_PATH = "out/AdaptativeMergesort/temp/";
+    private CustomSortedList list;
+    private long numberOfRuns;
 
-    private BufferedReader[] originFiles;
-    private BufferedWriter[] destinationFiles;
+    private long n;
 
     private long k = (long) Math.pow(2, 20);
-    private long n = (long) Math.pow(2, 30);
+
 
     public AdaptativeMergesort(String inputFileName) throws IOException {
         super(inputFileName);
-        this.inputFileName = inputFileName;
 
-        int nOfFiles = (int) (n/k);
-        this.originFileNames = new String[nOfFiles];
-        this.destinationFileNames = new String[nOfFiles];
+        inputFile = new BufferedReader(new FileReader(inputFileName));
+        list = new CustomSortedList();
 
-        this.originFiles = new BufferedReader[nOfFiles];
-        this.destinationFiles = new BufferedWriter[nOfFiles];
+        long i = 0;
+        String line = inputFile.readLine();
+        long prevLong = Long.parseLong(line);
+        long currentLong;
+        long currentRunSize = 1;
 
-        for (String fileName : this.originFileNames)
-            createFile(fileName);
-        for (String fileName : this.destinationFileNames)
-            createFile(fileName);
 
-        inputFile = new BufferedReader(new FileReader(this.inputFileName));
+        createFile(TEMP_PATH+i+".txt");
+        BufferedWriter currentWriter = new BufferedWriter(new FileWriter(TEMP_PATH+i+".txt"));
+        currentWriter.write(prevLong+"");
+        currentWriter.newLine();
+        this.n += 1;
 
-        long[] elements = new long[(int) k];
-        for (int i = 0; i < nOfFiles; i++) {
-            destinationFiles[i] = new BufferedWriter(new FileWriter(originFileNames[i]));
+        long startTime = System.currentTimeMillis();
+        System.out.println("Split strarted: "+ this.inputFileName);
 
-            for (int j = 0; j < k; j++) {
-                long number = Long.parseLong(inputFile.readLine());
-                elements[j] = number;
-                j++;
+        while((line = inputFile.readLine()) != null) {
+            this.n += 1;
+            currentLong = Long.parseLong(line);
+
+            if (prevLong > currentLong){
+                currentWriter.close();
+                if(i % 10000 == 0)
+                    System.out.println("Run nº " + i + " generated. (Elapsed: "+(System.currentTimeMillis() - startTime)+" ms)");
+
+                list.add(new CustomNode(i, TEMP_PATH+i+".txt", currentRunSize));
+                currentRunSize = 0;
+                i += 1;
+                createFile(TEMP_PATH+i+".txt");
+                currentWriter = new BufferedWriter(new FileWriter(TEMP_PATH+i+".txt"));
             }
-            Arrays.sort(elements);
-            for (int j = 0; j < k; j++) {
-                this.destinationFiles[i].write(Long.toString(elements[j]));
-            }
-
-            this.destinationFiles[i].close();
-            i++;
+            currentWriter.write(currentLong+"");
+            currentWriter.newLine();
+            currentRunSize += 1;
+            prevLong = currentLong;
         }
+        list.add(new CustomNode(i, TEMP_PATH+i+".txt", currentRunSize));
+        currentWriter.close();
+        System.out.println("Run nº " + i + " generated. (Elapsed: "+(System.currentTimeMillis() - startTime)+" ms)");
+        System.out.println("Runs generated successfully");
 
 
-//        this.originFiles[0] = new BufferedReader(new FileReader(f1));
-//        this.originFiles[1] = new BufferedReader(new FileReader(f2));
-//
-//        this.destinationFiles[0] = new BufferedWriter(new FileWriter(g1));
-//        this.destinationFiles[1] = new BufferedWriter(new FileWriter(g2));
+    }
 
+    public CustomSortedList getList(){
+        return list;
     }
 
 
     @Override
     public void sort() throws IOException {
-        int runSize = 1;
-        int i0 = 0;
-        int i1 = 0;
+        System.out.println("Merging started.");
+        long startTime = System.currentTimeMillis();
+        long i = 0;
 
-        while(runSize < this.n){
-            double current0 = Double.parseDouble(originFiles[0].readLine());
-            double current1 = Double.parseDouble(originFiles[1].readLine());
-
+        while(list.getFirstElement().nextNode != null){
+            list.mergeTwoFirsts();
+            if(i % 10000 == 0)
+            System.out.println("Merge nº "+i+" concluded. (Elapsed: "+(System.currentTimeMillis() - startTime)+" ms)");
+            i += 1;
         }
 
-    }
-
-
-    public void merge(){
+        createFile(OUT_PATH+inputFileName);
+        copyFile(new File(list.getFirstElement().getFileName()), new File(OUT_PATH+inputFileName));
 
     }
 
-
-    public void createFile(String path) throws IOException {
-        File f = new File(path);
-
-        f.getParentFile().mkdirs();
-        f.createNewFile();
+    public long getN(){
+        return n;
     }
 }
