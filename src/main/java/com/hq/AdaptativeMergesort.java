@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class AdaptativeMergesort extends Mergesort {
 
     private BufferedReader inputFile;
-    public static long MIN_RUN_SIZE = 5;//(long) Math.pow(2, 30);
+    public static long MIN_RUN_SIZE = (long) Math.pow(2, 30);
     public static String OUT_PATH = "out/AdaptativeMergesort/OUT_";
     public static String TEMP_PATH = "out/AdaptativeMergesort/temp/";
     private CustomSortedList list;
